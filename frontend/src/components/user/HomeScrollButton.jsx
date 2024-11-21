@@ -5,7 +5,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { scrollBottom } from '../../utils/scrollTo';
 
 const HomeScrollButton = () => {
-    // Animasyon kontrolü için
+
     const controls = useAnimation();
 
     // Hover'da animasyonu durdurma
@@ -13,7 +13,6 @@ const HomeScrollButton = () => {
         controls.stop();
     };
 
-    // Hover'dan çıkınca animasyonu başlatma
     const handleMouseLeave = () => {
         controls.start('bounce');
     };
@@ -32,21 +31,20 @@ const HomeScrollButton = () => {
                 onMouseLeave={handleMouseLeave}
                 variants={{
                     bounce: {
-                        y: [0, -15, 0], // Yukarı-aşağı hareket
+                        y: [0, -15, 0],
                         transition: {
-                            duration: 1, // Animasyon süresi
-                            repeat: Infinity, // Sürekli tekrar
-                            ease: 'easeInOut', // Yumuşak geçiş
+                            duration: 1,
+                            repeat: Infinity,
+                            ease: 'easeInOut',
                         },
                     },
                 }}
             >
                 <IconButton
-                    onClick={() => scrollBottom(100)}
+                    onClick={() => scrollBottom(800)}
                     sx={{ p: 0 }}
                 >
                     <FaArrowAltCircleDown
-                        color='white'
                         size={50}
                     />
                 </IconButton>

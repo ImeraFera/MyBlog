@@ -5,6 +5,7 @@ const baseTheme = {
         fontFamily: 'Bai Jamjuree, Arial, sans-serif',
         fontSize: 14,
     },
+
     components: {
         MuiButton: {
             styleOverrides: {
@@ -18,7 +19,16 @@ const baseTheme = {
                 },
             },
         },
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: 'black',
+                    margin: '0.5em 0 1em 0',
+                },
+            },
+        },
     },
+
 
 };
 

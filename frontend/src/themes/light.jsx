@@ -1,13 +1,32 @@
 import { createTheme } from '@mui/material/styles';
+import baseTheme from './base';
 
-const darkTheme = createTheme({
+const lightTheme = createTheme({
+
+    palette: {
+        mode: 'light',
+        text: {
+            primary: '#000000',
+        },
+        background: {
+            default: '#f8f9fa',
+        },
+    },
     typography: {
-        fontFamily: 'Bai Jamjuree, Arial, sans-serif',
+        ...baseTheme.typography,
+
     },
     components: {
-
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    ...baseTheme.components.MuiDivider.styleOverrides.root,
+                    backgroundColor: '#000000',
+                }
+            }
+        }
     },
 });
 
 
-export default darkTheme;
+export default lightTheme;

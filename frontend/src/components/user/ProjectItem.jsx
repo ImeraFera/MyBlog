@@ -17,14 +17,20 @@ function ProjectItem(props) {
                 container
                 sx={{
                     bgcolor: '#313131',
-                    p: 1,
                     borderRadius: '0.5em',
                     border: '1em'
                 }}
                 className='project-item'
+                p={1}
+
             >
                 <Grid2
-                    size={2}
+                    size={{
+                        lg: 2,
+                        md: 2,
+                        sm: 0,
+                        xs: 0,
+                    }}
                 >
                     <Box
                         display={'flex'}
@@ -40,7 +46,12 @@ function ProjectItem(props) {
                     </Box>
                 </Grid2>
                 <Grid2
-                    size={10}
+                    size={{
+                        lg: 10,
+                        md: 10,
+                        sm: 12,
+                        xs: 12,
+                    }}
                 >
                     <Grid2
                         size={12}
@@ -62,7 +73,7 @@ function ProjectItem(props) {
                                 variant='caption'
                                 color='white'
                             >
-                                last updated : 12/03/2009
+                                12/03/2009
                             </Typography>
                         </Box>
                     </Grid2>

@@ -2,9 +2,15 @@ import { createTheme } from '@mui/material/styles';
 import baseTheme from './base';
 
 const darkTheme = createTheme({
+
     palette: {
+        mode: 'dark',
         text: {
-            primary: '#fff',
+            primary: '#ffffff',
+
+        },
+        background: {
+            default: '#212121',
         },
     },
     typography: {
@@ -12,7 +18,14 @@ const darkTheme = createTheme({
 
     },
     components: {
-
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    ...baseTheme.components.MuiDivider.styleOverrides.root,
+                    backgroundColor: '#ffffff',
+                }
+            }
+        }
     },
 });
 

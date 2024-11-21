@@ -1,6 +1,5 @@
-import { Box, Grid2, Typography } from '@mui/material'
+import { Box, Grid2, Link, Typography } from '@mui/material'
 import React from 'react'
-
 function SocialAccountCard(props) {
 
 
@@ -10,46 +9,55 @@ function SocialAccountCard(props) {
         <Grid2
             size={12}
         >
-            <Box
-                display={'flex'}
-                bgcolor={bgColor}
+            <Link
+                href={link}
                 sx={{
-                    backgroundImage: bgImage,
+                    textDecoration: 'none'
                 }}
-                justifyContent={'center'}
-                alignItems={'center'}
-                borderRadius={'0.5em'}
-                p={1}
-                height={55}
-                className='social-account-card'
             >
-                <Icon
-                    color='white'
-
-                    className="social-account-card-icon"
-                >
-                </Icon>
 
                 <Box
-                    ml={1}
-                    className='social-account-card-text'
+                    display={'flex'}
+                    bgcolor={bgColor}
+                    sx={{
+                        backgroundImage: bgImage,
+                    }}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                    borderRadius={'0.5em'}
+                    p={1}
+                    height={55}
+                    className='social-account-card'
+
                 >
-                    <Typography
-                        variant='body1'
-                        fontSize={20}
+                    <Icon
                         color='white'
+
+                        className="social-account-card-icon"
                     >
-                        {text}
-                    </Typography>
+                    </Icon>
+
+                    <Box
+                        ml={1}
+                        className='social-account-card-text'
+                    >
+                        <Typography
+                            variant='body1'
+                            fontSize={20}
+                            color='white'
+                        >
+                            {text}
+                        </Typography>
+                    </Box>
+
                 </Box>
 
-            </Box>
+                <Box
 
-            <Box
+                >
 
-            >
-
-            </Box>
+                </Box>
+            </Link>
 
         </Grid2 >
 
