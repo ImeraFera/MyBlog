@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Divider, Grid2, IconButton, Stack, Typography } from '@mui/material'
+import { Avatar, Box, Button, CircularProgress, Divider, Grid2, IconButton, Stack, Typography } from '@mui/material'
 import React, { useEffect } from 'react'
 import HomeScrollButton from '../components/user/HomeScrollButton';
 import ProjectItem from '../components/user/ProjectItem';
@@ -20,7 +20,7 @@ import ReactMarkdown from 'react-markdown';
 import { FaLightbulb } from "react-icons/fa";
 import { FaRegLightbulb } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
-import { setTheme } from '../redux/slices/appSlice';
+import { getRepositories, setTheme } from '../redux/slices/appSlice';
 const markdownContent = `
 wasd
 `;
@@ -28,6 +28,7 @@ wasd
 function Home() {
 
     const dispatch = useDispatch();
+    const status = useSelector(({ app }) => app.status);
 
     const theme = useSelector(({ app }) => app.theme);
 
@@ -35,6 +36,15 @@ function Home() {
         dispatch(setTheme(!theme));
     }
 
+    useEffect(() => {
+        const fetchData = async () => {
+            await dispatch(getRepositories()).unwrap();
+        };
+        fetchData();
+    }, []);
+
+
+    const repositories = useSelector(({ app }) => app.repositories);
     return (
 
         <>
@@ -121,12 +131,14 @@ function Home() {
                             <Avatar
                                 sx={{
                                     width: {
+                                        xl: 300,
                                         lg: 150,
                                         md: 100,
                                         sm: 100,
                                         xs: 100
                                     },
                                     height: {
+                                        xl: 300,
                                         lg: 150,
                                         md: 100,
                                         sm: 100,
@@ -162,10 +174,8 @@ function Home() {
             </Grid2>
 
             <Grid2
-                my={1}
                 container
                 spacing={1}
-
             >
                 <Grid2
                     size={{
@@ -189,57 +199,78 @@ function Home() {
                             variant='middle'
                         ></Divider>
 
-                        <Stack
-                            px={1}
-                            my={2}
+
+                        <Scrollbars
+                            style={{
+                                height: '320px',
+                            }}
+
+                            renderThumbVertical={({ style, ...props }) => (
+                                <div
+                                    {...props}
+                                    style={{
+                                        ...style,
+                                        backgroundColor: 'white',
+                                        borderRadius: '4px',
+                                        width: '2px',
+                                        left: 7
+                                    }}
+                                />
+
+                            )}
+                            autoHide
 
                         >
-                            <Scrollbars
-                                style={{
-                                    height: '320px',
-                                }}
-                                renderView={({ style, ...props }) => (
-                                    <div
-                                        {...props}
-                                        style={{
-                                            ...style,
-                                            marginRight: '-16px'
-                                        }}
-                                    />
-                                )}
-                                renderThumbVertical={({ style, ...props }) => (
-                                    <div
-                                        {...props}
-                                        style={{
-                                            ...style,
-                                            backgroundColor: 'white',
-                                            borderRadius: '4px',
-                                            width: '2px',
-                                            left: 7
-                                        }}
-                                    />
-
-                                )}
-                                autoHide
+                            <Stack
+                                px={1}
+                                flexWrap={'wrap'}
+                                width={'100%'}
                             >
-
                                 <Grid2
                                     container
                                     spacing={1}
-                                    flexDirection={'row'}
                                 >
-                                    <ProjectItem ></ProjectItem>
-                                    <ProjectItem ></ProjectItem>
-                                    <ProjectItem ></ProjectItem>
-                                    <ProjectItem ></ProjectItem>
-                                    <ProjectItem ></ProjectItem>
+                                    {status === 'loading' ? (
+                                        <Box
+                                            width={'100%'}
+                                            display={'flex'}
+                                            justifyContent={'center'}
+                                            alignItems={'center'}
+                                        >
+                                            <CircularProgress
+                                                color='primary'
+                                            />
+                                        </Box>
+
+                                    ) : repositories.map((repository, index) => {
+                                        return (
+                                            <ProjectItem
+                                                name={repository.name}
+                                                key={index}
+                                                github={{
+                                                    link: repository.html_url,
+                                                    fullName: repository.full_name,
+                                                }}
+                                                updatedAt={repository.updated_at}
+                                                description={repository.description}
+                                                stargazersCount={repository.stargazers_count}
+                                                language={repository.language}
+                                            ></ProjectItem>
+                                        )
+                                    })}
+
+
 
                                 </Grid2>
-                            </Scrollbars>
 
-                        </Stack>
+                            </Stack>
+                        </Scrollbars>
+
                     </Box>
-                </Grid2>
+                </Grid2 >
+
+
+
                 <Grid2
                     size={{
                         lg: 3,

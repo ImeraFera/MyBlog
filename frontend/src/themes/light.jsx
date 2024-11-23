@@ -14,7 +14,9 @@ const lightTheme = createTheme({
     },
     typography: {
         ...baseTheme.typography,
-
+        allVariants: {
+            color: 'black'
+        }
     },
     components: {
         MuiDivider: {
