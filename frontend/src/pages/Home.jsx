@@ -22,7 +22,46 @@ import { FaRegLightbulb } from "react-icons/fa";
 import { useDispatch, useSelector } from 'react-redux';
 import { getRepositories, setTheme } from '../redux/slices/appSlice';
 const markdownContent = `
-wasd
+# 👨‍💻 **Ahmet Furkan Sayan**  
+Hi there! I'm a passionate **Web Developer** with expertise in building dynamic, scalable, and user-friendly web applications. I enjoy bringing ideas to life through code and collaborating on innovative projects.
+
+---
+
+## 🛠️ **Skills & Technologies**
+
+### **Frontend Development**
+- **Languages**: JavaScript, TypeScript, HTML5, CSS3, SCSS  
+- **Frameworks & Libraries**: React, Redux, MUI  
+- **Tools**: Vite
+
+### **Backend Development**
+- **Languages**: Java, JavaScript (Node.js)  
+- **Frameworks**: Spring Boot, Express.js  
+- **Databases**: PostgreSQL, MySQL, MongoDB, Firebase  
+
+### **Other Tools & Skills**
+- Git & GitHub  
+- API Development (REST)  
+
+---
+
+## 🌟 **What I Love**
+- Crafting clean and reusable code.  
+- Exploring new web technologies.  
+- Enhancing user experience through intuitive designs.  
+- Solving complex problems with simple solutions.  
+
+---
+
+## 📫 **Contact Me**
+- **Email**: [ahmet.sayan331@gmail.com](mailto:ahmet.sayan331@gmail.com)  
+- **GitHub**: [github.com/imerafera](https://github.com/imerafera)  
+- **LinkedIn**: [linkedin.com/in/ahmetfsayan](https://linkedin.com/in/ahmetfsayan)  
+- **Portfolio**: [www.yourportfolio.com](https://www.yourportfolio.com)
+
+---
+
+Feel free to check out my GitHub or reach out for collaborations or opportunities!
 `;
 
 function Home() {
@@ -454,8 +493,21 @@ function Home() {
 
                         <Box
                             p={2}
+
                         >
-                            <ReactMarkdown>{markdownContent}</ReactMarkdown>
+                            <Box
+                                display={'flex'}
+                                alignItems={'center'}
+                                justifyContent={'center'}
+                                flexDirection={'column'}
+                            >
+
+                                <ReactMarkdown
+
+                                >
+                                    {markdownContent}
+                                </ReactMarkdown>
+                            </Box>
 
                         </Box>
                     </Box>
