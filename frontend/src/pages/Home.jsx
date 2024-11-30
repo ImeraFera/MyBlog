@@ -9,7 +9,6 @@ import { IoLogoLinkedin } from "react-icons/io5";
 import { IoLogoMedium } from "react-icons/io5";
 import {
     Swiper, SwiperSlide,
-
 } from 'swiper/react';
 import { Autoplay, } from 'swiper/modules'
 import 'swiper/css';
@@ -30,7 +29,7 @@ Hi there! I'm a passionate **Web Developer** with expertise in building dynamic,
 ## 🛠️ **Skills & Technologies**
 
 ### **Frontend Development**
-- **Languages**: JavaScript, TypeScript, HTML5, CSS3, SCSS  
+- **Languages**: JavaScript, HTML5, CSS3
 - **Frameworks & Libraries**: React, Redux, MUI  
 - **Tools**: Vite
 
@@ -168,20 +167,21 @@ function Home() {
                             className='home-profile-card'
                         >
                             <Avatar
+                                src='/img/profile.jpg'
                                 sx={{
                                     width: {
-                                        xl: 300,
-                                        lg: 150,
-                                        md: 100,
-                                        sm: 100,
-                                        xs: 100
+                                        xl: 400,
+                                        lg: 250,
+                                        md: 150,
+                                        sm: 150,
+                                        xs: 150
                                     },
                                     height: {
-                                        xl: 300,
-                                        lg: 150,
-                                        md: 100,
-                                        sm: 100,
-                                        xs: 100
+                                        xl: 400,
+                                        lg: 250,
+                                        md: 150,
+                                        sm: 150,
+                                        xs: 150
                                     },
                                 }}
                             ></Avatar>
@@ -191,6 +191,13 @@ function Home() {
                             >
                                 <Typography
                                     variant='h5'
+                                    sx={{
+                                        fontSize: {
+                                            md: 24,
+                                            lg: 32,
+                                            xl: 64,
+                                        }
+                                    }}
                                     color='textPrimary'
                                 >
                                     Ahmet Furkan Sayan
@@ -199,6 +206,13 @@ function Home() {
                                     textAlign={'center'}
                                     variant='body1'
                                     color='textPrimary'
+                                    sx={{
+                                        fontSize: {
+                                            md: 12,
+                                            lg: 16,
+                                            xl: 32,
+                                        }
+                                    }}
                                 >
                                     Full Stack Web Developer
                                 </Typography>
@@ -237,11 +251,9 @@ function Home() {
                         <Divider
                             variant='middle'
                         ></Divider>
-
-
                         <Scrollbars
                             style={{
-                                height: '320px',
+                                height: '330px',
                             }}
 
                             renderThumbVertical={({ style, ...props }) => (
