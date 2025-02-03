@@ -55,9 +55,8 @@ Hi there! I'm a passionate **Web Developer** with expertise in building dynamic,
 ## 📫 **Contact Me**
 - **Email**: [ahmet.sayan331@gmail.com](mailto:ahmet.sayan331@gmail.com)  
 - **GitHub**: [github.com/imerafera](https://github.com/imerafera)  
-- **LinkedIn**: [linkedin.com/in/ahmetfsayan](https://linkedin.com/in/ahmetfsayan)  
-- **Portfolio**: [www.yourportfolio.com](https://www.yourportfolio.com)
-
+- **LinkedIn**: [linkedin.com/in/ahmetfsayan](https://linkedin.com/in/ahmetfsayan) 
+ 
 ---
 
 Feel free to check out my GitHub or reach out for collaborations or opportunities!
@@ -357,29 +356,29 @@ function Home() {
                             >
                                 <SocialAccountCard
                                     Icon={IoLogoInstagram}
-                                    link={'https://instagram.com/' + 'user1'}
-                                    text='selamknk'
+                                    link={'https://www.instagram.com/ahmetf.syn/'}
+                                    text='ahmetf.syn'
                                     bgImage="linear-gradient(to right, #833ab4, #fd1d1d, #fcb045)"
                                 ></SocialAccountCard>
                                 <SocialAccountCard
                                     Icon={IoLogoGithub}
-                                    link={'https://instagram.com/' + 'user2'}
-                                    text='selamknk'
+                                    link={'https://github.com/ImeraFera'}
+                                    text='ImeraFera'
                                     bgColor={'#0D1117'}
                                 ></SocialAccountCard>
                                 <SocialAccountCard
                                     Icon={IoLogoLinkedin}
-                                    link={'https://instagram.com/' + 'user3'}
+                                    link={'https://www.linkedin.com/in/ahmetfsayan/'}
                                     text='selamknk'
                                     bgColor='#0882BD'
                                 ></SocialAccountCard>
-                                <SocialAccountCard
+                                {/* <SocialAccountCard
                                     Icon={IoLogoMedium}
                                     link={'https://instagram.com/' + 'user4'}
                                     text='selamkndsadsa '
                                     bgColor={'gray'}
 
-                                ></SocialAccountCard>
+                                ></SocialAccountCard> */}
                             </Grid2>
                         </Stack>
                     </Box>
